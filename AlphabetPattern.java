@@ -444,7 +444,7 @@ class AlphabetPattern
 				{
 					System.out.print("* ");
 				}
-				else if(j>n/2+1 && i==j||j<n/2+1 && i+j==n+2)
+				else if(i>2 && i==j||i>2+ && i+j==n+1)
 				{
 					System.out.print("* ");
 				}
