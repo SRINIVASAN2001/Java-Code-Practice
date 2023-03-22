@@ -1,0 +1,116 @@
+class Account1
+{
+	String name;
+	int accNO;
+	double accBal;
+	long phNo;
+	long ifsc;
+	
+	
+	Account1(int accNo,double accBal,long phNo,long ifsc,String name)
+	{
+		this.name=name;
+		this.accNO=accNo;
+		this.accBal=accBal;
+		this.phNo=phNo;
+		this.ifsc=ifsc;
+		
+	}
+	
+	void Deposit(double amt)
+	{
+		System.out.println("Dummy");
+	}
+	
+	void Withdraw(double amt)
+	{
+		System.out.println("Dummy");
+	}
+	
+	final void BalanceEnquiry()
+	{
+		System.out.println("Your Account Balance="+accBal);
+	}
+}
+
+class SavingsAccount extends Account1
+{
+
+	SavingsAccount(int accNo, double accBal, long phNo, long ifsc,String name)
+	{
+		super(accNo, accBal, phNo, ifsc,name);
+		System.out.println("Your Savings Account is Created Successfully!!!!");
+	}
+
+	void Deposit(double amt)
+	{
+		System.out.println("Depositing in your Savings account and the Amount="+amt);
+		
+		accBal=accBal+amt;
+		
+		System.out.println("Your Current Account Balance is :"+accBal);
+	}
+	
+	void Withdraw(double amt)
+	{
+		System.out.println("Enter your Withdrawal Amount from your Savings Account="+amt);
+		
+		accBal=accBal-amt;
+		
+		System.out.println("Your Current Account Balance is :"+accBal);
+	}
+
+}
+
+class LoanAccount extends Account1
+{
+	LoanAccount(int accNo, double accBal, long phNo, long ifsc,String name)
+	{
+		super(accNo, accBal, phNo, ifsc,name);
+		System.out.println("Your Loan Account is Created Successfully!!!!");
+	}
+
+	void Deposit(double amt)
+	{
+		System.out.println("Depositing in your Loan account and the Amount="+amt);
+		
+		accBal=accBal-amt;
+		
+		System.out.println("Your Current Account Balance is :"+accBal);
+	}
+	
+	void Withdraw(double amt)
+	{
+		System.out.println("Enter your Withdrawal Amount from your Loan Account="+amt);
+		
+		accBal=accBal+amt;
+		
+		System.out.println("Your Current Account Balance is :"+accBal);
+	}
+}
+
+
+class MainClass 
+{
+	public static void main(String[] args)
+	{
+		System.out.println("*************************************");
+		
+		
+		SavingsAccount sa1 = new SavingsAccount(1234,10000.0,8056016834l,123456789l,"Srinivasan");
+		
+		sa1.Deposit(2000.0);
+		sa1.Withdraw(1000.0);
+		sa1.BalanceEnquiry();
+		
+		System.out.println("**************- SAVINGS - ACCOUNT -***********************");
+		
+		LoanAccount la1 = new LoanAccount(5678,20000.0,9840456448l,987654321l,"Sathish");
+		
+		la1.Deposit(3000.0);
+		la1.Withdraw(1000.0);
+		la1.BalanceEnquiry();
+		
+		System.out.println("**************- LOAN - ACCOUNT -***********************");
+	}
+}
